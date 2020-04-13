@@ -1,0 +1,37 @@
+<div *ngIf="producto">
+        <div class="container">
+          <p><b>Nombre del producto: </b>{{producto.name_product}}</p>
+          <p><b>Precio del producto: </b>${{producto.price_product}} </p>
+          <p><b>Descripcion: </b>{{producto.info_product}}</p>
+          <p><b>Stock: </b>{{producto.stock}} </p>
+          <p><b>Tipo Producto: </b>{{producto.type_product}}</p>
+          <p><b>imagen:</b>{{producto.image_product}} </p>
+        
+          <div>
+            <label>Cantidad requerida de producto</label>
+                <div >
+                        <input type="number"  name="cantidad" [(ngModel)]="cantidad"
+                          required autocomplete="off" placeholder="Cantidad">
+        
+                      </div>
+                      <br>
+                      <br>
+
+            <button class="btn btn-success" (click)="comprar()">Comprar</button>
+            <br>
+            <br>
+         
+            <button class="btn btn-primary" (click)="volver()">Volver</button>
+          </div>
+        </div>
+        <br>
+        <div *ngIf="failProducto" class="float-left">
+                <p class="p-3 bg-danger text-white rounded" style="margin-left: 50px">Error: {{mensajeFail}}</p>
+              </div>
+
+
+              <div *ngIf="creado" class="float-left">
+                <p class="p-3 bg-success text-white rounded" style="margin-left: 50px">OK: {{mensajeOK}}</p>
+              </div>
+
+      </div>

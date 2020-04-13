@@ -1,0 +1,101 @@
+<div class="container">
+ 
+    <div class="row">
+      <div class="col-md-12">
+    
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>
+              <span class="glyphicon glyphicon-th"></span>
+              <span>Agregar producto</span>
+            </strong>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-12">
+              <form name="form" (ngSubmit)="onCreate()" #f="ngForm" novalidate>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="glyphicon glyphicon-th-large"></i>
+                    </span>
+                    <select class="form-control" name="idProductIdIngreso" [(ngModel)]="opcionSeleccionado" (change)="capturar()">
+                     <option value="0">Selecciona un producto de ingreso</option>
+                      <option *ngFor="let producto of productos">
+                        {{producto.name_product}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="glyphicon glyphicon-th-large"></i>
+                    </span>
+                  
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="number" class="form-control" name="cantidadStockProducto" [(ngModel)]="form.cantidadStockProducto"
+                        required autocomplete="off" placeholder="Cantidad de producto a ingresar">
+                        <br>
+                    </div>
+                    
+                    <div class="col-md-6">
+                      <input type="number" class="form-control" name="cantidadMovimiento" [(ngModel)]="form.cantidadMovimiento" required
+                        autocomplete="off" placeholder="valor">
+    
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" class="form-control" name="motivo" [(ngModel)]="form.motivo"
+                        required autocomplete="off" placeholder="Descripcion ingreso">
+                    </div>
+
+                    
+                   
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-success" [disabled]="!f.valid">Crear</button>
+                </div>
+              </form>
+              <div>
+                <button class="btn btn-primary float-left mr-3" (click)="volver()">Volver</button>
+              </div>
+              <br>
+              <br>
+              <div *ngIf="failProducto" class="float-left">
+                <p class="p-3 bg-danger text-white rounded">Error: {{mensajeFail}}</p>
+              </div>
+              <div *ngIf="failProducto" class="float-left">
+                <p class="p-3 bg-danger text-white rounded">Error: {{msjErr}}</p>
+              </div>
+              <div *ngIf="creado" class="float-left">
+                <p class="p-3 bg-success text-white rounded" >OK: {{mensajeOK}}</p>
+              </div>
+              
+              <div *ngIf="creado" class="float-left">
+                <p class="p-3 bg-success text-white rounded" style="margin-left: 50px">OK: {{msjOK}}</p>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!--                                          -->
+    
+    
+    

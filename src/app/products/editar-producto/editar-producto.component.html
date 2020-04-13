@@ -1,0 +1,120 @@
+<div class="container">
+ 
+  
+
+  <div class="row">
+    <div class="col-md-12">
+  
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong>
+            <span class="glyphicon glyphicon-th"></span>
+            <span>Agregar producto</span>
+          </strong>
+        </div>
+        <div class="panel-body">
+            <label for="nombreProducto" style="margin-left: 20px">Tipo de producto: </label>
+            <label for="nombreProducto" style="margin-left: 220px">Nombre producto: </label>
+          <div class="col-md-12">
+            <form name="form" (ngSubmit)="onUpdate()" #f="ngForm" novalidate>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-th-large"></i>
+                  </span>
+                  <select class="form-control" name="type_product" [(ngModel)]="opcionSeleccionado" (change)="capturar()" >
+                   <option value="0" [selected]="valueDefecto">{{valueDefecto}}</option>
+                    <option *ngFor="let tipoProducto of tipoProductos">
+                      {{tipoProducto.nombreTipoProducto}}
+                    </option>
+                  </select>
+                  <input type="text" class="form-control" value="{{ verSeleccion }}" name="type_product" [(ngModel)]="form.type_product" required
+                  autocomplete="on" style="display:none">
+                  <input type="text" class="form-control" name="name_product" [(ngModel)]="form.name_product" required
+                    autocomplete="off" placeholder="Nombre Producto">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-th-large"></i>
+                  </span>
+                  <input type="text" class="form-control" name="info_product" [(ngModel)]="form.info_product" required
+                    autocomplete="off" placeholder="Descripcion">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-6">
+                    <input type="number" class="form-control" name="price_product" [(ngModel)]="form.price_product"
+                      required autocomplete="off" placeholder="Precio">
+  
+                  </div>
+                  <div class="col-md-6">
+                    <input type="number" class="form-control" name="cost_product" [(ngModel)]="form.cost_product" required
+                      autocomplete="off" placeholder="Costo">
+  
+                  </div>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-shopping-cart"></i>
+                      </span>
+                      <input type="number" class="form-control" name="stock" [(ngModel)]="form.stock"  autocomplete="off" placeholder="Stock" value="0" DISABLED>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-usd"></i>
+                      </span>
+                      <button type="button" (click)="agregarImagen()" style="margin-left: 60px" >seleccionar imagen</button>
+                      <span class="input-group-addon"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-usd"></i>
+                      </span>
+                      <input type="text" class="form-control" value="{{ verSeleccion }}" name="image_product" [(ngModel)]="form.image_product" 
+                       value="Ho!as" DISABLED  >
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-success" [disabled]="!f.valid">Actualizar</button>
+              </div>
+            </form>
+            <div>
+              <button class="btn btn-primary float-left mr-3" (click)="volver()">Volver</button>
+            </div>
+            <br>
+            <br>
+            <div *ngIf="failProducto" class="float-left">
+              <p class="p-3 bg-danger text-white rounded">Error: {{mensajeFail}}</p>
+            </div>
+            <div *ngIf="creado" class="float-left">
+              <p class="p-3 bg-success text-white rounded">OK: {{mensajeOK}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--                                          -->
+  
+  
+  

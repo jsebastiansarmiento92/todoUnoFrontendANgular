@@ -1,0 +1,14 @@
+<div *ngIf="producto">
+    <div class="container">
+      <p><b>Nombre del producto: </b>{{producto.name_product}}</p>
+      <p><b>Precio del producto: </b>${{producto.price_product}} </p>
+      <p><b>Descripcion: </b>{{producto.info_product}}</p>
+      <p><b>Stock: </b>{{producto.stock}} </p>
+      <p><b>Tipo Producto: </b>{{producto.type_product}}</p>
+      <p><b>imagen:</b>{{producto.image_product}} </p>
+      <p><b>Costo: </b>{{producto.cost_product}}</p>
+      <div>
+        <button class="btn btn-primary" (click)="volver()">Volver</button>
+      </div>
+    </div>
+  </div>

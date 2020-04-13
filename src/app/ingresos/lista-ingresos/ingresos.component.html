@@ -1,0 +1,32 @@
+<div class="container">
+    <div><button class="btn btn-success btn-lg" routerLink="/nuevo-ingreso">Nuevo ingreso</button></div>
+</div>
+<br>
+<div class="container">
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Motivo Ingreso</th>
+          <th scope="col">Fecha ingreso</th>
+          <th scope="col">Valor</th>
+          <th scope="col">Descripcion</th>
+        <!--  <th scope="col" *ngIf="user === 'admin'">Editar</th>
+          <th scope="col" *ngIf="user === 'admin'">Borrar</th>-->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ingreso of ingresos">
+          <td>{{ingreso.idIngreso}}</td>
+          <td class="btn btn-primary"  style="margin-left: 60px"  routerLink="/detalle/{{ingreso.idProductIdIngreso}}">{{ingreso.idProductIdIngreso}}</td>
+          <td>{{ingreso.fechaIngreso}}</td>
+          <td>{{ingreso.cantidadMovimiento}}</td>
+          <td>{{ingreso.motivo}}</td>
+          <td ><button class="btn btn-warning" routerLink="/detalle/{{ingreso.id_ingreso}}">Ver</button></td>
+       <!-- <td *ngIf="user === 'admin'"><button class="btn btn-warning" routerLink="/editar/{{ingreso.id_ingreso}}">Editar</button></td>
+          <td *ngIf="user === 'admin'"><button class="btn btn-danger" (click)="onDelete(ingreso.id_ingreso)">Borrar</button></td>--> 
+        </tr>
+      </tbody>
+    </table>
+    
+  </div>
